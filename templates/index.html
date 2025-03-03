@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频分析</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>请选择一个视频文件</h1>
+        <form id="linkForm" enctype="multipart/form-data">
+            <label for="videoInput">选择视频：</label>
+            <input type="file" id="videoInput" name="video" accept="video/*" required>
+            <button type="submit">提交</button>
+        </form>
+        <p id="result"></p> <!-- 显示结果 -->
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
