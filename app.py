@@ -137,6 +137,8 @@ def process_video(video_path):
     out.release()
     cap.release()
 
+
+
     video_score = total_rating / frame_count * 100 if frame_count > 0 else 0
 
     print(f'视频评分: {video_score:.2f}%')
