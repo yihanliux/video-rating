@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频分析</title>
+    <title>Upload Video</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>请选择一个视频文件</h1>
-        <form id="linkForm" enctype="multipart/form-data">
-            <label for="videoInput">选择视频：</label>
-            <input type="file" id="videoInput" name="video" accept="video/*" required>
-            <button type="submit">提交</button>
-        </form>
-        <p id="result"></p> <!-- 显示结果 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="{{ url_for('static', filename='images/example3.png') }}" alt="Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('overviews') }}">Overviews & Demos</a></li>
+                <li><a href="{{ url_for('upload') }}" class="active">Upload</a></li>
+                <li><a class="disabled-link">Analysis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="dropZone">
+        <h1>Upload Videos</h1>
+        <p id="upload-instruction">Select a video file to start analysis.</p>
+        <button id="submitBtn">Upload Your Video</button>
+        <p class="drop-text">or drop videos here</p>
     </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

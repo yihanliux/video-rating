@@ -1,49 +1,188 @@
-/* 设置页面的基本样式 */
+/* 🌟 页面基础样式（自定义字体） */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif; /* 你可以换成其他字体，比如 'Roboto', sans-serif */
     margin: 0;
-    background-color: #f4f4f9;
+    padding: 0;
+    background-color: #F5F5FA;
 }
 
-/* 容器样式 */
+/* 🏠 顶部导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 75px; /* ✅ 设置菜单栏高度为 75px */
+    padding: 0 20px; /* ✅ 上下不需要 padding，防止超出 75px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex; /* ✅ 让内容在 75px 高度内居中 */
+    align-items: center; /* ✅ 垂直居中菜单内容 */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    justify-content: flex-start; /* ✅ 让菜单紧跟着 Logo */
+}
+
+/* 🖼 Logo 样式 */
+.logo img {
+    height: 45px; /* 控制 logo 高度 */
+    margin-right: 60px; /* 让菜单和 logo 有间距 */
+}
+
+/* 📜 导航菜单 */
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-right: 60px; /* 菜单选项间距 */
+}
+
+/* 📜 导航菜单 */
+.nav-links a {
+    color: #33333B; /* 默认所有菜单项颜色 */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold; /* ✅ 让文字加粗 */
+    transition: 0.3s;
+}
+
+/* 🎯 选中的页面（active 类）变成红色 */
+.nav-links a.active {
+    color: #E5322D;
+    font-weight: bold; /* ✅ 确保选中的菜单项也加粗 */
+}
+
+.nav-links a:hover {
+    color: #E5322D;
+}
+
+.disabled-link {
+    color: inherit; /* 默认颜色，不变灰 */
+    text-decoration: none; /* 去掉下划线 */
+    cursor: pointer; /* 保持默认鼠标样式 */
+}
+
+/* 🚫 当鼠标悬停时，禁用点击，变灰 */
+.disabled-link:hover {
+    color: gray !important; /* 悬停时变灰 */
+    cursor: default; /* 鼠标变为默认样式 */
+}
+
+/* 🎨 修改 <h1> 样式 */
+.container h1 {
+    font-size: 48px; /* 设置字体大小 */
+    font-weight: bold; /* 加粗 */
+    color: #33333B; /* 文字颜色 */
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 0px;
+}
+
+/* 📦 主体内容 */
 .container {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #33333B;
+    border-radius: 20px;
     text-align: center;
-    width: 400px;
+    width: 556px;
+    height: 344px; /* ✅ 固定高度 */
+    display: flex;
+    flex-direction: column; /* ✅ 让子元素垂直排列 */
+    justify-content: space-evenly; /* ✅ 让内容在容器内均匀分布 */
+    align-items: center; /* ✅ 让所有内容水平居中 */
+    margin: 140px auto 20px; /* ✅ 让整个容器在页面中垂直居中 */
 }
 
-/* 标题样式 */
-h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+#upload-instruction {
+    font-size: 24px; /* ✅ 只影响 <p> 文字 */
+    margin-bottom: 40px;
+    margin-top: 16px;
 }
 
-/* 输入框样式 */
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px -10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* 按钮样式 */
-button {
-    background-color: #007BFF;
+/* 🎯 上传按钮 */
+#submitBtn {
+    background-color: #E5322D;
     color: white;
+    font-size: 24px;
+    font-weight: bold;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    width: 400px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+#submitBtn:hover {
+    background-color: #C61816;
+}
+
+/* 📌 让 "or drop videos here" 更明显 */
+.drop-text {
+    font-size: 17px !important;
+    color: #33333B; /* 设置为灰色 */
+    margin-top: 16px;
+}
+
+#dropZone {
+    transition: border-color 0.3s ease;
+}
+
+#dropZone.drag-over {
+    border: 2px dashed #C61816; /* ✅ 只有在拖拽时才显示边框 */
+}
+
+/* 📌 当用户拖拽文件到 .container 时，边框变蓝 */
+#dropZone.drag-over {
+    border-color: #C61816;
+}
+
+
+.analysis-container {
+    position: absolute; /* ✅ 让它相对于页面定位 */
+    top: calc(50% + 172px + 60px - 344px); /* ✅ 从 .container 底部 60px 处开始 */
+    left: 0;
+    width: 100%; /* ✅ 水平占满 */
+    height: calc(100% - (50% + 172px + 60px - 344px)); /* ✅ 占据剩下的全部高度 */
+    background-color: #ffffff; /* ✅ 你可以改颜色 */
+    display: flex;
+    align-items: center; /* ✅ 让内容垂直居中 */
+    justify-content: center; /* ✅ 让内容水平居中 */
+    flex-direction: column;
+}
+
+.analysis-container h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#loading-text {
+    font-size: 20px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* 🔄 加载动画 */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #E5322D;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

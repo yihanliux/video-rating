@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="{{ url_for('static', filename='images/example3.png') }}" alt="Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('overviews') }}">Overviews & Demos</a></li>
+                <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                <li><a href="{{ url_for('analysis') }}" class="active">Analysis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <video id="videoPlayer" controls width="500">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="analysis-container">
+        <h2>Analyzing Your Video...</h2>
+        <p id="loading-text">Please wait while we process your video.</p>
+        <div class="loader"></div>
+        <p id="result-text" style="display: none;"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='analysis.js') }}"></script>
+</body>
+</html>
