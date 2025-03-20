@@ -27,8 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.done) {
                 document.getElementById("loading-text").style.display = "none";
                 document.querySelector(".loader").style.display = "none";
-                document.getElementById("result-text").textContent = data.result;
-                document.getElementById("result-text").style.display = "block";
+                document.getElementById("result-text").innerHTML = data.result.replace(/\n/g, "<br>");
+                document.getElementById('result-container').style.display = 'flex';
+
+                // 更新图片
+                const resultImage = document.getElementById("result-image");
+                resultImage.src = data.image_url;
+                resultImage.style.display = 'block';
             } else {
                 setTimeout(checkStatus, 2000);
             }

@@ -12,11 +12,12 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="{{ url_for('static', filename='images/example3.png') }}" alt="Logo">
+                <span class="logo-text">NAME</span>
             </a>
             <ul class="nav-links">
-                <li><a href="{{ url_for('overviews') }}">Overviews & Demos</a></li>
-                <li><a href="{{ url_for('upload') }}">Upload</a></li>
-                <li><a href="{{ url_for('analysis') }}" class="active">Analysis</a></li>
+                <li><a href="{{ url_for('overviews') }}">OVERVIEWS & DEMOS</a></li>
+                <li><a href="{{ url_for('upload') }}">UPLOAD</a></li>
+                <li><a href="{{ url_for('analysis') }}" class="active">ANALYSIS</a></li>
             </ul>
         </div>
     </nav>
@@ -28,10 +29,23 @@
     </div>
 
     <div class="analysis-container">
-        <h2>Analyzing Your Video...</h2>
-        <p id="loading-text">Please wait while we process your video.</p>
-        <div class="loader"></div>
-        <p id="result-text" style="display: none;"></p>
+        <!-- 加载中状态 -->
+        <div id="loading-container">
+            <h2>Video Analysis Results</h2>
+            <p id="loading-text">Your video is being analyzed, please wait.</p>
+            <div class="loader"></div>
+        </div>
+    
+        <!-- 加载完成后的结果区域 -->
+        <div id="result-container" style="display: none;">
+            <div class="result-left">
+                <img src="" alt="Result Image" id="result-image">
+            </div>
+            <div class="result-right">
+                
+                <p id="result-text">Here is the analysis result of your video. It is very detailed and informative.</p>
+            </div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='analysis.js') }}"></script>

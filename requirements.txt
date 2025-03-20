@@ -1,0 +1,10 @@
+flask
+opencv-python-headless
+mediapipe
+matplotlib
+tqdm
+numpy
+ruptures
+scipy
+statsmodels
+pillow

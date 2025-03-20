@@ -22,15 +22,29 @@ body {
 
 .nav-container {
     display: flex;
-    align-items: center;
     max-width: 1200px;
-    justify-content: flex-start; /* ✅ 让菜单紧跟着 Logo */
+    align-items: center; /* ✅ 保证 Logo 和导航文字垂直居中 */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* 去掉下划线 */
 }
 
 /* 🖼 Logo 样式 */
 .logo img {
     height: 45px; /* 控制 logo 高度 */
-    margin-right: 60px; /* 让菜单和 logo 有间距 */
+}
+
+.logo-text {
+    margin-left: 10px; /* 图片与文字之间的距离 */
+    margin-right: 60px;
+    font-size: 40px;
+    font-family: Georgia;
+    color: #33333B; /* 文字颜色 */
+    font-weight: bold;
+    line-height: 1; /* 确保文字的垂直对齐更紧凑 */
 }
 
 /* 📜 导航菜单 */
@@ -43,13 +57,14 @@ body {
 
 .nav-links li {
     margin-right: 60px; /* 菜单选项间距 */
+    align-items: center; /* ✅ 确保每个菜单项也垂直居中 */
 }
 
 /* 📜 导航菜单 */
 .nav-links a {
     color: #33333B; /* 默认所有菜单项颜色 */
     text-decoration: none;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold; /* ✅ 让文字加粗 */
     transition: 0.3s;
 }
@@ -76,6 +91,8 @@ body {
     cursor: default; /* 鼠标变为默认样式 */
 }
 
+
+
 /* 🎨 修改 <h1> 样式 */
 .container h1 {
     font-size: 48px; /* 设置字体大小 */
@@ -87,7 +104,7 @@ body {
 
 /* 📦 主体内容 */
 .container {
-    background-color: white;
+    background-color: #F5F5FA;
     color: #33333B;
     border-radius: 20px;
     text-align: center;
@@ -147,37 +164,38 @@ body {
 
 
 .analysis-container {
-    position: absolute; /* ✅ 让它相对于页面定位 */
-    top: calc(50% + 172px + 60px - 344px); /* ✅ 从 .container 底部 60px 处开始 */
+    position: absolute; /* 或者 position: fixed; 如果你希望它始终保持在视口内 */
+    top: 580px; 
     left: 0;
     width: 100%; /* ✅ 水平占满 */
-    height: calc(100% - (50% + 172px + 60px - 344px)); /* ✅ 占据剩下的全部高度 */
+    height: calc(100vh - 580px); /* 剩下的高度 */
     background-color: #ffffff; /* ✅ 你可以改颜色 */
-    display: flex;
-    align-items: center; /* ✅ 让内容垂直居中 */
-    justify-content: center; /* ✅ 让内容水平居中 */
-    flex-direction: column;
+    overflow: auto; /* 如果内容超出会产生滚动条 */
 }
 
-.analysis-container h1 {
+.analysis-container h2 {
     font-size: 48px;
+    color: #33333B;
     font-weight: bold;
-    text-align: center;
+    text-align: center; /* 水平居中 */
+    padding-top: 30px; /* 控制离顶部的距离 */
+    margin: 0; /* 去掉默认的 margin */
 }
 
 #loading-text {
-    font-size: 20px;
-    color: #777;
-    margin-top: 10px;
+    font-size: 18px;
+    color: #33333B;
+    text-align: center; /* 水平居中 */
+    margin-top: 20px;
 }
 
-/* 🔄 加载动画 */
+/* 加载中动画 */
 .loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #E5322D;
+    border: 8px solid #f3f3f3; /* 外圈 */
+    border-top: 8px solid #E5322D; /* 内圈 */
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     animation: spin 1s linear infinite;
     margin: 20px auto;
 }
@@ -185,4 +203,24 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* 结果区域的样式 */
+#result-container {
+    display: flex;
+    margin-top: 0px;
+}
+
+.result-left img {
+    width: 70vw; /* 占据整个窗口宽度的 80% */
+    height: auto; /* 保持图片比例 */
+}
+
+/* 右侧文字部分 */
+.result-right p {
+    font-size: 24px;
+    text-align: left; /* 水平居中 */
+    padding-top: 30px; /* 控制离顶部的距离 */
+    margin-right: 100px;
+
 }
