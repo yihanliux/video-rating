@@ -34,6 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 const resultImage = document.getElementById("result-image");
                 resultImage.src = data.image_url;
                 resultImage.style.display = 'block';
+
+                const resultImage1 = document.getElementById("suggestion-image-1");
+                resultImage1.src = data.image_url_1;
+                resultImage1.style.display = 'block';
+
+                const resultImage2 = document.getElementById("suggestion-image-2");
+                if (data.image_url_2 !== "None") {  // 确认 image_url_2 不是 None 或 null
+                    resultImage2.src = data.image_url_2;
+                    resultImage2.style.display = 'block';
+                } else {
+                    resultImage2.style.display = 'none';  // 如果是 None 或 null，则不展示图片
+                }
             } else {
                 setTimeout(checkStatus, 2000);
             }

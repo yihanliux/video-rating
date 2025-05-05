@@ -4,13 +4,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F5F5FA;
+    overflow: hidden;
 }
 
 /* 🏠 顶部导航栏 */
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
     background-color: #FFFFFF;
     height: 75px; /* ✅ 设置菜单栏高度为 75px */
     padding: 0 20px; /* ✅ 上下不需要 padding，防止超出 75px */
@@ -18,6 +18,11 @@ body {
     z-index: 1000;
     display: flex; /* ✅ 让内容在 75px 高度内居中 */
     align-items: center; /* ✅ 垂直居中菜单内容 */
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width:calc(100% - 80px);
+    border-radius: 10px;
 }
 
 .nav-container {
@@ -165,25 +170,20 @@ body {
 
 .analysis-container {
     position: absolute; /* 或者 position: fixed; 如果你希望它始终保持在视口内 */
-    top: 580px; 
+    top: 550px; 
     left: 0;
-    width: 100%; /* ✅ 水平占满 */
-    height: calc(100vh - 580px); /* 剩下的高度 */
+    width: calc(100% - 40px); /* ✅ 水平占满 */
+    height: calc(100vh - 550px - 20px); /* 剩下的高度 */
     background-color: #ffffff; /* ✅ 你可以改颜色 */
-    overflow: auto; /* 如果内容超出会产生滚动条 */
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
 }
 
-.analysis-container h2 {
-    font-size: 48px;
-    color: #33333B;
-    font-weight: bold;
-    text-align: center; /* 水平居中 */
-    padding-top: 30px; /* 控制离顶部的距离 */
-    margin: 0; /* 去掉默认的 margin */
-}
 
 #loading-text {
-    font-size: 18px;
+    font-size: 20px;
     color: #33333B;
     text-align: center; /* 水平居中 */
     margin-top: 20px;
@@ -208,19 +208,55 @@ body {
 /* 结果区域的样式 */
 #result-container {
     display: flex;
-    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.result-left {
+    width: 70%; /* 占据整个窗口宽度的 80% */
+    border-radius: 10px; 
+    padding-top: 20px;
+    margin-right: 10px;
+    box-shadow: 20px 0 0 0 #F5F5FA;
+}
+
+.result-left h2{
+    font-size: 24px; /* 设置字体大小 */
+    font-weight: bold; /* 加粗 */
+    color: #33333B; /* 文字颜色 */
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 0px;
 }
 
 .result-left img {
-    width: 70vw; /* 占据整个窗口宽度的 80% */
-    height: auto; /* 保持图片比例 */
+    width: 90%;           /* 图片宽度占满父容器 */
+    height: auto;           /* 自动调整高度保持长宽比 */
+    object-fit: contain;    /* 保持图片的完整显示 */
 }
+
 
 /* 右侧文字部分 */
-.result-right p {
-    font-size: 24px;
+.result-right {
+    width: 30%;
+    padding-top: 20px; /* 控制离顶部的距离 */
+    border-radius: 10px;
     text-align: left; /* 水平居中 */
-    padding-top: 30px; /* 控制离顶部的距离 */
-    margin-right: 100px;
-
+    margin-left: 10px;
+    box-shadow: -20px 0 0 0 #F5F5FA;
 }
+
+.result-right h2{
+    font-size: 24px; /* 设置字体大小 */
+    font-weight: bold; /* 加粗 */
+    color: #33333B; /* 文字颜色 */
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 0px;
+    
+}
+
+.result-right p{
+    font-size: 20px;
+    padding-left: 20px; 
+}
+

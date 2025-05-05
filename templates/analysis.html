@@ -31,7 +31,6 @@
     <div class="analysis-container">
         <!-- 加载中状态 -->
         <div id="loading-container">
-            <h2>Video Analysis Results</h2>
             <p id="loading-text">Your video is being analyzed, please wait.</p>
             <div class="loader"></div>
         </div>
@@ -39,11 +38,17 @@
         <!-- 加载完成后的结果区域 -->
         <div id="result-container" style="display: none;">
             <div class="result-left">
+                <h2>Visualization of Analysis</h2>
                 <img src="" alt="Result Image" id="result-image">
             </div>
+            
             <div class="result-right">
-                
+                <h2>Suggestion</h2>
                 <p id="result-text">Here is the analysis result of your video. It is very detailed and informative.</p>
+                <div class="image-gallery">
+                    <img src="" alt="Suggestion Image 1" id="suggestion-image-1">
+                    <img src="" alt="Suggestion Image 2" id="suggestion-image-2">
+                </div>
             </div>
         </div>
     </div>
